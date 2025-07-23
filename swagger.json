@@ -103,7 +103,7 @@
         }
       },
       "put": {
-        "tags": ["Contacts"],
+        "tags": [],
         "summary": "Update a contact by ID",
         "description": "Provide the contact ID and the updated fields.",
         "parameters": [
