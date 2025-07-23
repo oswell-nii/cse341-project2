@@ -24,11 +24,13 @@ const createContact = async (req, res) => {
     const contact = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        phoneNumber: req.body.phoneNumber,
+        relationship: req.body.relationship,
+        address: req.body.address,
         email: req.body.email,
-        favoriteColor: req.body.favoriteColor,
-        birthday: req.body.birthday,
+        preferredContactMethod: req.body.preferredContactMethod,
     };
-    const response = await mongodb.getDatabase().db().collection('emergency_contacts').insertOne(emergency_contacts);
+    const response = await mongodb.getDatabase().db().collection('emergency_contacts').insertOne(contact);
     if (response.acknowledged > 0) {
         res.status(204).send();
     } else {
@@ -43,11 +45,13 @@ const updateContact = async (req, res) => {
     const contact = {
         firstName: req.body.firstName,
         lastName: req.body.lastName,
+        phoneNumber: req.body.phoneNumber,
+        relationship: req.body.relationship,
+        address: req.body.address,
         email: req.body.email,
-        favoriteColor: req.body.favoriteColor,
-        birthday: req.body.birthday,
+        preferredContactMethod: req.body.preferredContactMethod,
     };
-    const response = await mongodb.getDatabase().db().collection('emergency_contacts').replaceOne({ _id: contactId }, emergency_contacts);
+    const response = await mongodb.getDatabase().db().collection('emergency_contacts').replaceOne({ _id: contactId }, contact);
     if (response.modifiedCount > 0) {
         res.status(204).send();
     } else {

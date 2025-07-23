@@ -1,0 +1,42 @@
+// LOCALHOST
+### Get all contacts
+GET http://localhost:3000/emergency-contacts
+
+
+### Get contact by id
+GET http://localhost:3000/emergency-contacts/68810f408f060cd7984c50ce
+
+### Create contact
+POST http://localhost:3000/emergency-contacts HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Samuel",
+    "lastName": "Okine",
+    "phoneNumber": "+233553474169",
+    "relationship": "Father",
+    "address": "123 Ridge Road, Accra",
+    "email": "sam.okine@gmail.com",
+    "preferredContactMethod": "Email"
+}
+
+
+
+
+### Put contact
+PUT http://localhost:3000/emergency-contacts/688118358f060cd7984c50d0 HTTP/1.1
+content-type: application/json
+
+{
+    "firstName": "Solomon",
+    "lastName": "Nanavi",
+    "phoneNumber": "+2332441234345",
+    "relationship": "Bishop",
+    "address": "18 Barnor St, Accra",
+    "email": "solo.nana@gmail.com",
+    "preferredContactMethod": "Email"
+}
+
+
+### Delete contact
+DELETE  http://localhost:3000/emergency-contacts/68811e3d5b1abdbce1bca0e8
