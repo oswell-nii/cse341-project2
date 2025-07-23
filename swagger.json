@@ -103,23 +103,40 @@
         }
       },
       "put": {
-        "tags": [],
-        "description": "",
+        "tags": ["Contacts"],
+        "summary": "Update a contact by ID",
+        "description": "Provide the contact ID and the updated fields.",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "The ID of the contact to update"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "description": "Contact update fields",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "firstName": { "type": "string", "example": "John" },
+                "lastName": { "type": "string", "example": "Doe" },
+                "phoneNumber": { "type": "string", "example": "+12345678" },
+                "relationship": { "type": "string", "example": "Cousin" },
+                "address": { "type": "string", "example": "123 Yard Ln" },
+                "email": { "type": "string", "example": "oswell.doe@gmail.com" },
+                "preferredContactMethod": { "type": "string", "example": "whatsapp" }
+              }
+            }
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
+          "204": { "description": "Contact updated" },
+          "400": { "description": "Invalid request" },
+          "500": { "description": "Server error" }
         }
       },
       "delete": {
